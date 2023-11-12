@@ -16,7 +16,11 @@ int main(){
 
         size_t position = alphabet.find(character);
 
-        message.at(i) = encryptKey.at(position);
+        if(position != std::string::npos){ // example character test: "
+            message.at(i) = encryptKey.at(position);
+        } else {
+            message.at(i) = character;
+        }
     }
 
     std::cout << "Encrypted message is:" << message;
@@ -28,8 +32,12 @@ int main(){
 
         size_t position = encryptKey.find(character);
 
-        message.at(i) = alphabet.at(position);
+        if(position != std::string::npos){ 
+            message.at(i) = alphabet.at(position);
+        } else {
+            message.at(i) = character;
+        }
     }
 
-    std::cout << "\n Decrypted (just a check..) message is: " << message;
+    std::cout << "\nDecrypted (just a check..) message is: " << message;
 }
